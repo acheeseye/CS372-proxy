@@ -20,16 +20,17 @@ using std::vector;
 int main()
 {
 	cout << "$$  WELCOME TO THE CHEST LOOTING SIMULATOR\n";
-	cout << "$$  ******************************************\n";
+	cout << "$$  **************************************\n";
 	cout << "$$  THE BIG IDEA OF THIS PROGRAM IS PROXYING.\n";
 	cout << "$$  WE WILL ASSUME EACH CHEST IS A HUGE OBJECT\n";
 	cout << "$$  THAT IS COSTLY TO CONSTRUCT ESPECIALLY IF\n";
-	cout << "$$  IT IS NOT LOOTABLE.\n";
+	cout << "$$  IT IS NOT LOOTABLE (NEEDS PREMIUM ACCOUNT).\n";
 	cout << "$$  THUS A PROXY CLASS WILL CHECK ACCESS BEFORE\n";
 	cout << "$$  IT IS PASSED TO THE REAL CLASS FOR PROCESS.\n";
 	cout << "$$  ONCE CONNECTION HAS BEEN MADE, THE OBJECT\n";
 	cout << "$$  PERSISTS UNTIL EXITING PROGRAM WITH x.\n";
-	cout << "$$  ******************************************\n";
+	cout << "$$  PLEASE TRY BOTH NORMAL AND PREMIUM INV.\n";
+	cout << "$$  **************************************\n";
 	cout << "$$  YOU CAN CONSTRUCT:\n";
 	cout << "$$      A NORMAL INVENTORY  (n) -- can't loot anything\n";
 	cout << "$$      A PREMIUM INVENTORY (p) -- can loot everything\n\n";
@@ -48,7 +49,7 @@ int main()
 		}
 		else if(buf == 'p')
 		{
-			my_inv.set_premium();
+			my_inv.pay_299_99_per_month();
 			break;
 		}
 		cout << "xx  INVALID INPUT TRY AGAIN" << endl;
@@ -74,9 +75,9 @@ int main()
 
 	vector<ProxyChest> chests(5);
 
+	cout << "----PRESS ENTER TO LOOT A CHEST or 'x' to quit" << endl << endl;
 	while (true)
 	{
-		cout << "----PRESS ENTER TO LOOT A CHEST or 'x' to quit" << endl;
 		cout << icon_str;
 		if(getchar() == 'x')
 		{
@@ -87,6 +88,6 @@ int main()
 		chests[chest_id].loot_chest(my_inv);
 	}
 
-	cout << "\n$$  Bye" << endl << endl;
+	cout << "$$  Bye" << endl << endl;
 	return 0;
 }
