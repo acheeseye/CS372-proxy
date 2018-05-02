@@ -19,6 +19,11 @@ bool Inventory::is_premium() const
 	return prem_status_m;
 }
 
+void Inventory::pay_299_99_per_month()
+{
+	set_premium();
+}
+
 void Inventory::set_premium()
 {
 	prem_status_m = true;
