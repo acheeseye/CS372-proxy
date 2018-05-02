@@ -32,9 +32,12 @@ void ProxyChest::loot_chest(Inventory & inv)
 		}
 		else
 		{
-			cout << "$$  This chest was looted previously\n";
+			cout << "$$  This chest was looted previously\n    >>  Loot again";
+			std::cin.ignore();
 		}
 		real_chest_m->loot_chest(inv);	
+		std::cin.ignore();
+		cout << endl;
 	}
 	else
 	{
