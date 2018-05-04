@@ -47,7 +47,7 @@ int main()
 		{
 			break;
 		}
-		else if(buf == 'p')
+		if(buf == 'p')
 		{
 			my_inv.pay_299_99_per_month();
 			break;
@@ -63,29 +63,42 @@ int main()
 	if(my_inv.is_premium())
 	{
 		prem_str = "PREMIUM";
-		icon_str = "prem>>> ";
 	}
 	else
 	{
 		prem_str = "NORMAL";
-		icon_str = "norm>>> ";
 	}
 
 	cout << "$$  YOU NOW HAVE A " + prem_str + " INVENTORY" << endl << endl;
+	cout << "----PRESS ENTER TO ADVANCE DIALOGUE, 'x' to quit, or 'p' to pay $299.99/mo" << endl << endl;
 
 	vector<ProxyChest> chests(5);
 
-	cout << "----PRESS ENTER TO LOOT A CHEST or 'x' to quit" << endl << endl;
 	while (true)
 	{
+		if (my_inv.is_premium()) { icon_str = "prem>>> "; }
+		else { icon_str = "norm>>> "; }
+
 		cout << icon_str;
-		if(getchar() == 'x')
+		buf = getchar();
+		if(buf == 'x')
 		{
 			break;
 		}
-		const size_t chest_id = rand() % 5;
-		cout << "$$  Random chest of 5 looted. ID: " << chest_id << endl;
-		chests[chest_id].loot_chest(my_inv);
+		if(buf == 'p')
+		{
+			my_inv.pay_299_99_per_month();
+			cout << "$$  You now have a premium inventory  >>  ok";
+			getchar();
+			getchar();
+			cout << endl;
+		}
+		else
+		{
+			const size_t chest_id = rand() % 5;
+			cout << "$$  Random chest of 5 looted. ID: " << chest_id << endl;
+			chests[chest_id].loot_chest(my_inv);
+		}
 	}
 
 	cout << "$$  Bye" << endl << endl;

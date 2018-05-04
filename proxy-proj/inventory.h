@@ -18,13 +18,13 @@
 class Inventory
 {
 public:
-	Inventory();
+	Inventory() = default;
 	bool is_premium() const;
 	void pay_299_99_per_month();
 	void add_loot(int loot_id);
 private:
 	void set_premium();
-	bool prem_status_m;
+	bool prem_status_m = false;
 	std::vector<int> inv;
 };
 

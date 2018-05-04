@@ -9,11 +9,6 @@
 #include "chest.h"
 using std::cout;
 
-
-Inventory::Inventory() 
-	:	prem_status_m(false)
-{}
-
 bool Inventory::is_premium() const
 {
 	return prem_status_m;

@@ -23,19 +23,18 @@ using std::srand;
 // prints a message indicating construction
 Chest::Chest()
 {
-	cout << "$$  Imaginarily large chest being constructed ..." << endl;
+	cout << "$$  Imaginarily large chest being constructed..." << endl;
 	for (volatile int i = 0; i < 1000000000; ++i) {}
 	srand(time(nullptr));
 	loot_m = rand() % 4;
-	cout << "    >>  A chest was constructed!";
-	std::cin.ignore();
+	cout << "$$      A chest was constructed!  >> Loot it";
 }
 
 // Chest destructor
 // prints a message indicating destruction
 Chest::~Chest() noexcept
 {
-	cout << "$$  Chest destructed" << endl;
+	cout << "--  Chest destructed" << endl;
 }
 
 // loot_string
@@ -45,11 +44,11 @@ std::string Chest::loot_string() const
 	switch(loot_m)
 	{
 	case nothing:
-		return "$$  (nothing)";
+		return "$$      (nothing)";
 	case consumable:
-		return "$$  (consumable)";
+		return "$$      (consumable)";
 	case equipment:
-		return "$$  (equipment)";
+		return "$$      (equipment)";
 	default: 
 		return "###INVALID LOOT###";
 	}
@@ -63,7 +62,7 @@ void Chest::loot_chest(Inventory & inv)
 	cout << "$$  A chest was looted!" << endl;
 	if(loot_m == mimic)
 	{
-		cout << "**  (mimic) PREPARE FOR BATTLE (YOU OBLITERATED THE MIMIC)";
+		cout << "**      (mimic) PREPARE FOR BATTLE (YOU OBLITERATED THE MIMIC)  >>  ok";
 	}
 	else
 	{
